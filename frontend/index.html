@@ -46,8 +46,18 @@ color:black;
 
 <div class="panel">
 <h3>System Status: SECURE</h3>
-<p>Threats Detected Today: 0</p>
-<p>Blocked IPs: 0</p>
+<div class="panel">
+
+<h3>System Status: <span id="status">SECURE</span></h3>
+
+<p>Threats Detected Today: 
+<span id="threatCount">0</span>
+</p>
+
+<p>Blocked IPs: 
+<span id="blockedIPs">0</span>
+</p>
+
 </div>
 
 <div class="panel">
@@ -70,6 +80,22 @@ Run AI Threat Analysis
 <h3>Recent Threat Activity</h3>
 <p>No suspicious activity detected.</p>
 </div>
+<script>
 
+async function updateStats(){
+
+const response = await fetch("/stats");
+const data = await response.json();
+
+document.getElementById("threatCount").innerText = data.threats;
+document.getElementById("blockedIPs").innerText = data.blocked;
+
+}
+
+setInterval(updateStats,3000);
+
+updateStats();
+
+</script>
 </body>
 </html>
