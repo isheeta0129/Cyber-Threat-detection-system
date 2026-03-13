@@ -2,22 +2,74 @@
 <html>
 <head>
 <title>Cyber Threat Detection Dashboard</title>
+
+<style>
+
+body{
+background-color:black;
+color:#00ff9c;
+font-family:monospace;
+text-align:center;
+}
+
+h1{
+color:#00ff9c;
+}
+
+.panel{
+border:1px solid #00ff9c;
+padding:20px;
+margin:20px;
+}
+
+button{
+background:black;
+color:#00ff9c;
+border:1px solid #00ff9c;
+padding:10px 20px;
+margin:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#00ff9c;
+color:black;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Cyber Threat Detection System</h1>
+<h1>CYBER THREAT DETECTION SYSTEM</h1>
 
-<p>Monitor suspicious activities and detect cyber threats.</p>
+<div class="panel">
+<h3>System Status: SECURE</h3>
+<p>Threats Detected Today: 0</p>
+<p>Blocked IPs: 0</p>
+</div>
 
+<div class="panel">
 
-<button onclick="alert('Scanning for cyber threats...')">
+<button onclick="alert('Scanning for threats...')">
 Start Threat Scan
 </button>
 
 <button onclick="window.location.href='/logs'">
 View Threat Logs
 </button>
-  
+
+<button onclick="window.location.href='/ai-check/10'">
+Run AI Threat Analysis
+</button>
+
+</div>
+
+<div class="panel">
+<h3>Recent Threat Activity</h3>
+<p>No suspicious activity detected.</p>
+</div>
+
 </body>
 </html>
