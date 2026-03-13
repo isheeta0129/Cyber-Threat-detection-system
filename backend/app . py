@@ -20,3 +20,12 @@ def show_logs():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+from flask import jsonify
+
+@app.route("/stats")
+def stats():
+    return jsonify({
+        "threats": 4,
+        "blocked": 2
+    })
