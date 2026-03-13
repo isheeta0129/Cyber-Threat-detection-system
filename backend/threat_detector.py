@@ -1,4 +1,5 @@
 login_attempts = {}
+blacklisted_ips = []
 
 def detect_bruteforce(ip):
     if ip in login_attempts:
@@ -7,6 +8,8 @@ def detect_bruteforce(ip):
         login_attempts[ip] = 1
 
     if login_attempts[ip] > 5:
-        return "⚠️ Possible Brute Force Attack Detected from " + ip
+        if ip not in blacklisted_ips:
+            blacklisted_ips.append(ip)
+        return "⚠️ Suspicious IP detected: " + ip
     else:
-        return "Login attempt recorded"
+        return "Login attempt recorded from " + ip
