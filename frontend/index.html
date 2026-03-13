@@ -107,5 +107,22 @@ setInterval(updateStats,3000);
 updateStats();
 
 </script>
+ 
+  const ctx = document.getElementById('attackChart');
+
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+datasets: [{
+label: 'Cyber Attack Attempts',
+data: [2,4,3,6,5,3,7],
+borderColor: '#00ff9c',
+borderWidth: 2
+}]
+}
+});
+
+</script>
 </body>
 </html>
