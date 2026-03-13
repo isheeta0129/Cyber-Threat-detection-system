@@ -12,5 +12,11 @@ def login_attempt(ip):
     result = detect_bruteforce(ip)
     return result
 
+@app.route("/logs")
+def show_logs():
+    with open("../data/threat_log.txt", "r") as file:
+        logs = file.read()
+    return "<pre>" + logs + "</pre>"
+
 if __name__ == "__main__":
     app.run(debug=True)
