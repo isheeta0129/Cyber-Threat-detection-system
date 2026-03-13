@@ -1,0 +1,16 @@
+from flask import Flask
+from threat_detector import detect_bruteforce
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Cyber Threat Detection System Running"
+
+@app.route("/login/<ip>")
+def login_attempt(ip):
+    result = detect_bruteforce(ip)
+    return result
+
+if __name__ == "__main__":
+    app.run(debug=True)
